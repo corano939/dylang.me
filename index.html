@@ -80,11 +80,21 @@
     body { font-size:125%; font-family: "Helvetica Neue", Helvetica; }
     ul#tabs { list-style-type: none; margin: 60px 0 0 0; padding: 0 0 0.2em 0; }
     ul#tabs li { display: inline; }
-    ul#tabs li a { color:#000; background-color: #b0e5ec; border: 2px solid #9dccd2; border-bottom: none; padding: 0.3em; text-decoration: none; }
+    ul#tabs li a { border-top-left-radius: 25px; border-top-right-radius: 25px; color:#000; background-color: #b0e5ec; border: 2px solid #9dccd2; border-bottom: none; padding: 0.3em; text-decoration: none; }
     ul#tabs li a:hover { background-color: #f1f0ee; }
     ul#tabs li a.selected { color: #000; background-color: #ccffff; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
     div.tabContent { border: 2px solid #9dccd2; padding: 0.9em; background-color: #ccffff; }
     div.tabContent.hide { display: none; }
+
+    div.pic {
+        width: 250px;
+        align-items: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center; }
+    div.card {
+      padding: 10px;
+    }
+ss
 
     </style>
 
@@ -95,13 +105,13 @@ h2, h3    {color: white;}
 </style>
     <title>dylang.me</title>
 
-
-<center> <img src="images/Profile.jpg" class = "img1">
-
-
+<div class ="pic">
+<center> <img src="images/Profile.JPG" class = "img1" style="width:250px">
+<div class ="card">
     <h2> DYLAN GILES </h2>
     <h3> <em> Sacramento, California </em> </h3> </center>
-
+</div>
+</div>
   </section>
 
   <ul id="tabs">
@@ -127,7 +137,7 @@ h2, h3    {color: white;}
 <div class="tabContent" id="funfacts">
 
   <div>
-    <div class ="center">
+
   <p> <ul>
     <li> I rode my bike off of a ten-foot cliff at age 6.
     Only sprained an ankle! </li>
@@ -137,7 +147,7 @@ h2, h3    {color: white;}
     <li> Played Toontown for many years (any fans?) </li>
 
 
-    <p> </ul> </div>
+    <p> </ul>
   </div>
 </div>
 </body>
