@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+    //<![CDATA[
+
+    var tabLinks = new Array();
+    var contentDivs = new Array();
+
+    function init() {
+
+      // Grab the tab links and content divs from the page
+      var tabListItems = document.getElementById('tabs').childNodes;
+      for ( var i = 0; i < tabListItems.length; i++ ) {
+        if ( tabListItems[i].nodeName == "LI" ) {
+          var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+          var id = getHash( tabLink.getAttribute('href') );
+          tabLinks[id] = tabLink;
+          contentDivs[id] = document.getElementById( id );
+        }
+      }
+
+      // Assign onclick events to the tab links, and
+      // highlight the first tab
+      var i = 0;
+
+      for ( var id in tabLinks ) {
+        tabLinks[id].onclick = showTab;
+        tabLinks[id].onfocus = function() { this.blur() };
+        if ( i == 0 ) tabLinks[id].className = 'selected';
+        i++;
+      }
+
+      // Hide all content divs except the first
+      var i = 0;
+
+      for ( var id in contentDivs ) {
+        if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+        i++;
+      }
+    }
+
+    function showTab() {
+      var selectedId = getHash( this.getAttribute('href') );
+
+      // Highlight the selected tab, and dim all others.
+      // Also show the selected content div, and hide all others.
+      for ( var id in contentDivs ) {
+        if ( id == selectedId ) {
+          tabLinks[id].className = 'selected';
+          contentDivs[id].className = 'tabContent';
+        } else {
+          tabLinks[id].className = '';
+          contentDivs[id].className = 'tabContent hide';
+        }
+      }
+
+      // Stop the browser following the link
+      return false;
+    }
+
+    function getFirstChildWithTagName( element, tagName ) {
+      for ( var i = 0; i < element.childNodes.length; i++ ) {
+        if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+      }
+    }
+
+    function getHash( url ) {
+      var hashPos = url.lastIndexOf ( '#' );
+      return url.substring( hashPos + 1 );
+    }
+
+    //]]>
+    </script>
+  </head>
+    <body onload ="init()">
+    <link rel="stylesheet" href="index.css">
+    <style type="text/css">
+
+    body { font-size:125%; font-family: "Helvetica Neue", Helvetica; }
+    ul#tabs { list-style-type: none; margin: 60px 0 0 0; padding: 0 0 0.2em 0; }
+    ul#tabs li { display: inline; }
+    ul#tabs li a { color:#000; background-color: #b0e5ec; border: 2px solid #9dccd2; border-bottom: none; padding: 0.3em; text-decoration: none; }
+    ul#tabs li a:hover { background-color: #f1f0ee; }
+    ul#tabs li a.selected { color: #000; background-color: #ccffff; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
+    div.tabContent { border: 2px solid #9dccd2; padding: 0.9em; background-color: #ccffff; }
+    div.tabContent.hide { display: none; }
+
+    </style>
+
+  <style>
+body {background-color: #95c1c6;}
+h1   {color: blue;}
+h2, h3    {color: white;}
+</style>
+    <title>dylang.me</title>
+
+
+<center> <img src="images/Profile.jpg" class = "img1">
+
+
+    <h2> DYLAN GILES </h2>
+    <h3> <em> Sacramento, California </em> </h3> </center>
+
+  </section>
+
+  <ul id="tabs">
+    <li>
+      <a href = "#about" class ="selected" onclick="showTab()">About</a>
+    </li>
+    <li>
+      <a href = "#funfacts" onClick ="showTab()">Fun Facts!</a>
+</li>
+
+  </ul>
+
+
+  <div class="tabContent" id="about">
+
+  <div>
+    <p>I've worked with Java up until pretty much last week but I'm
+      ready to take on new challenges! So far I've really enjoyed
+      bulding this webpage with html, CSS, and JavaScript.  I'm excited to work with DALI because I can't wait to learn
+      more tools for this programs in a group setting while working on meaningful projects.</p>
+  </div>
+</div>
+<div class="tabContent" id="funfacts">
+
+  <div>
+    <div class ="center">
+  <p> <ul>
+    <li> I rode my bike off of a ten-foot cliff at age 6.
+    Only sprained an ankle! </li>
+    <li> Deathly terrified of ants. </li>
+    <li> Ate chicken tenders every time we went out for dinner
+      in my youth. Even at a Mexican restauraunt. </li>
+    <li> Played Toontown for many years (any fans?) </li>
+
+
+    <p> </ul> </div>
+  </div>
+</div>
+</body>
+</html>
