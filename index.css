@@ -1,0 +1,18 @@
+ .img1{
+  transform: rotate(180deg);
+
+}
+h2 {
+    text-shadow: 3px 2px black;
+}
+h3 {
+    text-shadow: 3px 2px black;
+}
+h4 {
+  text: blue;
+}
+div.card {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
